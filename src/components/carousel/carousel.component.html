@@ -1,0 +1,12 @@
+<!--<ul>-->
+    <!--<li *ngFor="let img of images;let i = index">-->
+        <!--<div class="item" [ngClass]="{'active': data.tab == i}">-->
+            <!--<img [src]="img">-->
+        <!--</div>-->
+    <!--</li>-->
+<!--</ul>-->
+<md-tab-group class="image-tabs" [selectedIndex]="data.tab">
+    <md-tab *ngFor="let img of images;let i = index">
+        <img [src]="img">
+    </md-tab>
+</md-tab-group>
