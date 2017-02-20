@@ -1,4 +1,35 @@
 <main>
-<carousel [images]="data.images"></carousel>
-    <i class="material-icons">face</i>
+    <carousel [images]="data.images"></carousel>
+    <div class="op-btn-group">
+        <table>
+            <tr>
+                <td routerLink="/cert/1">
+                    <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
+                    <p>船员证书</p>
+                </td>
+                <td routerLink="/cert/2">
+                    <i class="fa fa-address-card-o fa-2x" aria-hidden="true"></i>
+                    <p>船员签证</p>
+                </td>
+                <td routerLink="/cert/3">
+                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                    <p>外籍证书</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+                    <p>进度查询</p>
+                </td>
+                <td>
+                    <i class="fa fa-question fa-2x" aria-hidden="true"></i>
+                    <p>常见问题</p>
+                </td>
+                <td>
+                    <i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>
+                    <p>联系我们</p>
+                </td>
+            </tr>
+        </table>
+    </div>
 </main>

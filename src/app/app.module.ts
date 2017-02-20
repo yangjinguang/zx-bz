@@ -8,6 +8,7 @@ import {HomePage} from "../pages/home/home.component";
 import {MaterialModule} from "@angular/material";
 import {Carousel} from "../components/carousel/carousel.component";
 import 'hammerjs';
+import {CertPage} from "../pages/cert/cert.component";
 
 const appRouters: Routes = [
     {
@@ -16,6 +17,7 @@ const appRouters: Routes = [
         pathMatch: 'full'
     },
     {path: 'home', component: HomePage},
+    {path: 'cert/:type', component: CertPage}
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRouters: Routes = [
     declarations: [
         AppComponent,
         HomePage,
-        Carousel
+        Carousel,
+        CertPage
     ],
     bootstrap: [AppComponent]
 })

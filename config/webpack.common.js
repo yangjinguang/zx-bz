@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const helpers = require('./helpers');
+const extractCSS = new ExtractTextPlugin('stylesheets/[name].css');
 
 module.exports = {
     entry: {
@@ -18,25 +19,24 @@ module.exports = {
                 loader: 'html-loader'
             },
             {
-                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                test: /\.(png|jpe?g|gif)$/,
                 loader: 'url-loader?name=assets/[name].[hash].[ext]'
             },
             {
-                test: /\.css$/,
-                exclude: helpers.root('src'),
-                loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap'})
+                test: /\.(svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file-loader?name=assets/[name].[hash].[ext]'
             },
             {
                 test: /\.css$/,
-                include: helpers.root('src'),
-                loaders: [
-                    'to-string-loader',
-                    'css-loader?sourceMap'
-                ]
+                exclude: [/material/,helpers.root('src')],
+                loader: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ['to-string-loader', "css-loader?sourceMap"]
+                })
             },
             {
-                test: /\.scss$/,
-                exclude: /node_modules/,
+                test: /\.(scss|css)$/,
+                include: [/material/, helpers.root('src')],
                 loaders: ['to-string-loader', 'css-loader?sourceMap', 'sass-loader'] // sass-loader not scss-loader
             }
         ]
@@ -50,6 +50,7 @@ module.exports = {
             helpers.root('./src'), // location of your src
             {} // a map of your routes
         ),
+        new ExtractTextPlugin({filename: '[name].[hash].css'}),
         new webpack.optimize.CommonsChunkPlugin({
             name: [
                 'app',
