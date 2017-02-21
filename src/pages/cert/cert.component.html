@@ -1,5 +1,5 @@
 <ul>
     <li *ngFor="let item of data.items">
-        <button md-raised-button [color]="primary">{{item.name}}</button>
+        <button md-raised-button [color]="primary" (click)="openDetail(item)">{{item.name}}</button>
     </li>
 </ul>

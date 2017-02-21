@@ -8,7 +8,10 @@ import {HomePage} from "../pages/home/home.component";
 import {MaterialModule} from "@angular/material";
 import {Carousel} from "../components/carousel/carousel.component";
 import 'hammerjs';
-import {CertPage} from "../pages/cert/cert.component";
+import {CertPage, CertDetailModal} from "../pages/cert/cert.component";
+import {Api} from "../services/api.service";
+import {CertFormPage} from "../pages/cert-form/cert-form.component";
+import {FormsModule} from "@angular/forms";
 
 const appRouters: Routes = [
     {
@@ -17,22 +20,28 @@ const appRouters: Routes = [
         pathMatch: 'full'
     },
     {path: 'home', component: HomePage},
-    {path: 'cert/:type', component: CertPage}
+    {path: 'cert/:type', component: CertPage},
+    {path: 'cert-form/:type', component: CertFormPage}
 ];
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(appRouters, {useHash: true}),
-        MaterialModule
+        MaterialModule,
+        FormsModule
     ],
     declarations: [
         AppComponent,
         HomePage,
+        CertPage,
+        CertFormPage,
         Carousel,
-        CertPage
+        CertDetailModal
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [Api],
+    entryComponents:[CertDetailModal]
 })
 export class AppModule {
 }
