@@ -28,7 +28,7 @@
                 <md-card-title>船员证</md-card-title>
                 <md-card-subtitle>{{apply.createAt|date:'yyyy-MM-dd HH:mm:ss'}}</md-card-subtitle>
                 <span class="apply-status c-danger"
-                      [ngClass]="{'c-danger': apply.status == 0,'c-success':apply.status == 1}">{{apply.status?'申请已通过':'申请未通过'}}</span>
+                      [ngClass]="{'c-danger': apply.status == 2||apply.status == 5,'c-success':apply.status == 3||apply.status == 4}">{{apply.status|ApplyStatus}}</span>
             </md-card-header>
             <hr>
             <md-card-content>

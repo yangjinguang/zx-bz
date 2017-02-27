@@ -1,0 +1,41 @@
+:host /deep/ .question-page {
+    padding: 20px;
+    .qa-title {
+        color: #008DD6;
+        text-align: center;
+        margin-top: 0;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 10px;
+            & > a {
+                color: #666;
+                font-size: 14px;
+            }
+            .answer {
+                table {
+                    width: 100% !important;
+                    border-collapse: collapse;
+                    td {
+                        border: 1px solid #ddd !important;
+                    }
+                }
+                ol {
+                    padding-left: 10px;
+                    li {
+                        margin-bottom: 0;
+                    }
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

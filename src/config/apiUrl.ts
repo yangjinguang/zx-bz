@@ -4,4 +4,5 @@ export const ApiUrl = {
     getCertItems: ApiHost + '/cert',
     apply: ApiHost + '/apply',
     applySearch: ApiHost + '/apply/search',
+    question: ApiHost + '/question'
 };

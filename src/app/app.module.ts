@@ -13,6 +13,8 @@ import {Api} from "../services/api.service";
 import {CertFormPage} from "../pages/cert-form/cert-form.component";
 import {FormsModule} from "@angular/forms";
 import {SearchPage} from "../pages/search/search.component";
+import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
+import {QuestionPage} from "../pages/question/question.component";
 
 const appRouters: Routes = [
     {
@@ -24,6 +26,7 @@ const appRouters: Routes = [
     {path: 'cert/:type', component: CertPage},
     {path: 'cert-form/:type', component: CertFormPage},
     {path: 'search', component: SearchPage},
+    {path: 'question', component: QuestionPage},
 ];
 
 @NgModule({
@@ -39,12 +42,14 @@ const appRouters: Routes = [
         CertPage,
         CertFormPage,
         SearchPage,
+        QuestionPage,
         Carousel,
-        CertDetailModal
+        CertDetailModal,
+        ApplyStatusPipe
     ],
     bootstrap: [AppComponent],
     providers: [Api],
-    entryComponents:[CertDetailModal]
+    entryComponents: [CertDetailModal],
 })
 export class AppModule {
 }

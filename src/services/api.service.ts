@@ -60,4 +60,11 @@ export class Api {
             .then(this.extractData)
             .catch(this.handleError);
     }
+
+    public getQuestion(): Promise<any> {
+        return this.http.get(ApiUrl.question)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
 }

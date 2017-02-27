@@ -1,0 +1,22 @@
+<div class="question-page">
+    <h4 class="qa-title">常见问题</h4>
+    <ul>
+        <li *ngFor="let question of data.questions;let index = index">
+            <a (click)="showAnswer(question)">{{index+1}}、<u>{{question.title}}</u></a>
+            <div class="answer" *ngIf="question.isShow">
+                <div [innerHTML]="question.answer"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
