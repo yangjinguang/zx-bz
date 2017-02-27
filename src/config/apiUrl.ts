@@ -1,5 +1,7 @@
 'use strict';
-
+export const ApiHost = 'http://localhost:3000';
 export const ApiUrl = {
-    getCertItems:'http://100.66.162.174:3000/cert'
+    getCertItems: ApiHost + '/cert',
+    apply: ApiHost + '/apply',
+    applySearch: ApiHost + '/apply/search',
 };

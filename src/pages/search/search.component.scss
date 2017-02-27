@@ -1,0 +1,43 @@
+:host /deep/ .search {
+    padding: 20px;
+    .search-form-or {
+        font-size: 12px;
+        width: 30px;
+        text-align: center;
+        color: #999;
+    }
+    .search-form {
+        margin-bottom: 20px;
+    }
+    .search-result {
+        .search-no-result {
+            .mat-card-content {
+                text-align: center;
+                color: #999;
+            }
+        }
+        .mat-card {
+            margin-bottom: 10px;
+
+            .mat-card-header {
+                position: relative;
+                .mat-card-header-text {
+                    margin: 0;
+                }
+                .apply-status {
+                    position: absolute;
+                    right: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        hr{
+            margin-left: -10px;
+            margin-right: -10px;
+            border-color: #efefef;
+        }
+    }
+
+
+}

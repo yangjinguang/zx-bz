@@ -12,6 +12,7 @@ import {CertPage, CertDetailModal} from "../pages/cert/cert.component";
 import {Api} from "../services/api.service";
 import {CertFormPage} from "../pages/cert-form/cert-form.component";
 import {FormsModule} from "@angular/forms";
+import {SearchPage} from "../pages/search/search.component";
 
 const appRouters: Routes = [
     {
@@ -21,7 +22,8 @@ const appRouters: Routes = [
     },
     {path: 'home', component: HomePage},
     {path: 'cert/:type', component: CertPage},
-    {path: 'cert-form/:type', component: CertFormPage}
+    {path: 'cert-form/:type', component: CertFormPage},
+    {path: 'search', component: SearchPage},
 ];
 
 @NgModule({
@@ -36,6 +38,7 @@ const appRouters: Routes = [
         HomePage,
         CertPage,
         CertFormPage,
+        SearchPage,
         Carousel,
         CertDetailModal
     ],

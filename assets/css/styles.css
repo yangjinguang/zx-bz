@@ -9,6 +9,7 @@ body {
     height: 100%;
     background-color: #f3f3f3;
 }
+
 .full-width {
     width: 100%;
 }
@@ -20,5 +21,14 @@ body {
 .md-button:not([disabled]):hover {
     background-color: transparent !important;
 }
+
+.c-danger {
+    color: #a94442;
+}
+
+.c-success {
+    color: #3c763d;
+}
+
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
 @import '~font-awesome/css/font-awesome.min.css';

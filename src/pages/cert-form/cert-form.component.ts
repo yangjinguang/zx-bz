@@ -19,6 +19,7 @@ export class CertFormPage implements OnInit {
             type: Number(route.snapshot.params['type']),
         };
         this.applyData = {
+            certItemId: this.data.type,
             name: '',
             shipType: '',
             post: '',
@@ -33,7 +34,9 @@ export class CertFormPage implements OnInit {
 
     public saveApply(): void {
         console.log(this.applyData);
-        this.data.success = true;
+        this.api.saveApply(this.applyData).then((result) => {
+            this.data.success = true;
+        })
     }
 
 }

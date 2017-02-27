@@ -1,6 +1,6 @@
 'use strict';
 import {Injectable} from "@angular/core";
-import {Http, Response, Headers, RequestOptions} from "@angular/http";
+import {Http, Response, Headers, RequestOptions, URLSearchParams} from "@angular/http";
 import {ApiUrl} from "../config/apiUrl";
 import 'rxjs/add/operator/toPromise';
 
@@ -13,6 +13,16 @@ export class Api {
     private extractData(res: Response) {
         let body = res.json();
         return body.data || {};
+    }
+
+    private queryMk(paramsData) {
+        let params = new URLSearchParams();
+        for (let k in paramsData) {
+            if (paramsData[k] !== '') {
+                params.set(k, paramsData[k])
+            }
+        }
+        return params
     }
 
     private handleError(error: Response | any) {
@@ -31,6 +41,21 @@ export class Api {
 
     public getCertItems(type: Number): Promise<any> {
         return this.http.get(ApiUrl.getCertItems + '/' + type)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public saveApply(applyData): Promise<any> {
+        return this.http.post(ApiUrl.apply, applyData)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public applySearch(searchData): Promise<any> {
+
+        return this.http.get(ApiUrl.applySearch, {search: this.queryMk(searchData)})
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);

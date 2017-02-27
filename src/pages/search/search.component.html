@@ -1,0 +1,53 @@
+<div class="search">
+    <div class="search-form">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="姓名" name="name" [(ngModel)]="searchData.name">
+                    </md-input-container>
+                </td>
+                <td class="search-form-or">或者</td>
+                <td>
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="手机号" name="phoneNumber" [(ngModel)]="searchData.phoneNumber">
+                    </md-input-container>
+                </td>
+            </tr>
+        </table>
+        <button class="full-width" md-raised-button [color]="primary" (click)="toSearch()">查询</button>
+    </div>
+    <div class="search-result">
+        <md-card *ngIf="!data.applies.total" class="search-no-result">
+            <md-card-content>
+                暂无结果
+            </md-card-content>
+        </md-card>
+        <md-card *ngFor="let apply of data.applies.list">
+            <md-card-header>
+                <md-card-title>船员证</md-card-title>
+                <md-card-subtitle>{{apply.createAt|date:'yyyy-MM-dd HH:mm:ss'}}</md-card-subtitle>
+                <span class="apply-status c-danger"
+                      [ngClass]="{'c-danger': apply.status == 0,'c-success':apply.status == 1}">{{apply.status?'申请已通过':'申请未通过'}}</span>
+            </md-card-header>
+            <hr>
+            <md-card-content>
+                <form>
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="姓名" disabled value="{{apply.name}}">
+                    </md-input-container>
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="船舶种类" disabled value="{{apply.shipType}}">
+                    </md-input-container>
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="职务" disabled value="{{apply.post}}">
+                    </md-input-container>
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="电话" disabled value="{{apply.phoneCode+apply.phoneNumber}}">
+                    </md-input-container>
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+

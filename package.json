@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "server": "webpack-dev-server --inline --progress --port 8080",
+    "server": "webpack-dev-server --inline --progress",
     "test": "",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "build:aot": "rimraf dist &&ngc  -p tsconfig.json && webpack --config config/webpack.prod.aot.js --progress --profile --bail"
