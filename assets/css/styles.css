@@ -3,6 +3,10 @@ html {
     height: 100%;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -23,12 +27,37 @@ body {
 }
 
 .c-danger {
-    color: #a94442;
+    color: #a94442 !important;
 }
 
 .c-success {
-    color: #3c763d;
+    color: #3c763d !important;
 }
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix {
+    display: block;
+}
+.mat-menu-item {
+    font-size: 14px !important;
+    line-height: 40px !important;
+    height: 40px !important;
+}
+.cdk-focus-trap-content {
+    height: 100%;
+}
+
 
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
 @import '~font-awesome/css/font-awesome.min.css';

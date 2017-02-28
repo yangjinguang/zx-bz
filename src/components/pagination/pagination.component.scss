@@ -1,0 +1,43 @@
+
+:host /deep/ .pagination {
+    width: 300px;
+    user-select: none;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        height: 30px;
+        li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            color: #333;
+            &.disabled {
+                cursor: not-allowed;
+                color: #999;
+            }
+            &:hover{
+                color: #999;
+            }
+            &.index-page, &.last-page {
+                flex: 2;
+            }
+            &.page-number {
+                flex: 1;
+                &.active{
+                    font-size: 16px;
+                    font-weight: bolder;
+                }
+            }
+            &.pre-page, &.next-page {
+                flex: 3;
+            }
+        }
+    }
+}
+

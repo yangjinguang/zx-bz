@@ -1,20 +1,9 @@
 <div class="search">
     <div class="search-form">
-        <table class="example-full-width" cellspacing="0">
-            <tr>
-                <td>
-                    <md-input-container class="full-width">
-                        <input mdInput placeholder="姓名" name="name" [(ngModel)]="searchData.name">
-                    </md-input-container>
-                </td>
-                <td class="search-form-or">或者</td>
-                <td>
-                    <md-input-container class="full-width">
-                        <input mdInput placeholder="手机号" name="phoneNumber" [(ngModel)]="searchData.phoneNumber">
-                    </md-input-container>
-                </td>
-            </tr>
-        </table>
+
+        <md-input-container class="full-width">
+            <input mdInput placeholder="手机号" name="phoneNumber" [(ngModel)]="searchData.phoneNumber">
+        </md-input-container>
         <button class="full-width" md-raised-button [color]="primary" (click)="toSearch()">查询</button>
     </div>
     <div class="search-result">

@@ -1,0 +1,76 @@
+<div class="admin-page " *ngIf="data.isLogin">
+    <div class="admin-left">
+        <ul>
+            <li>办证申请</li>
+        </ul>
+        <div class="al-footer" (click)="logout()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            退出
+        </div>
+    </div>
+    <div class="admin-body">
+        <table>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>类型</th>
+                <th>姓名</th>
+                <th>船舶类型</th>
+                <th>职务</th>
+                <th>电话</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let apply of data.applies;let index = index">
+                <td>{{index+1}}</td>
+                <td>{{apply.certName}}</td>
+                <td>{{apply.name}}</td>
+                <td>{{apply.shipType}}</td>
+                <td>{{apply.post}}</td>
+                <td>{{apply.phoneCode+apply.phoneNumber}}</td>
+                <td>{{apply.status|ApplyStatus}}</td>
+                <td class="option">
+                    <button md-icon-button [mdMenuTriggerFor]="menu">
+                        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                    </button>
+                    <md-menu #menu="mdMenu">
+                        <button md-menu-item (click)="changeStatus(apply)">
+                            <span>状态修改</span>
+                        </button>
+                        <button md-menu-item (click)="applyDel(apply)">
+                            <span class="c-danger">删除</span>
+                        </button>
+                    </md-menu>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <pagination [page]="data.page" [pages]="data.pages" (onPageChange)="pageChange($event)"></pagination>
+    </div>
+</div>
+<div class="admin-login-page" *ngIf="!data.isLogin">
+    <div class="login-card">
+        <form>
+            <md-input-container class="full-width">
+                <input mdInput placeholder="用户名" [(ngModel)]="data.loginData.username" name="username">
+            </md-input-container>
+            <md-input-container class="full-width">
+                <input mdInput type="password" placeholder="密码" [(ngModel)]="data.loginData.password" name="password">
+            </md-input-container>
+            <button md-raised-button class="full-width" (click)="login()">登录</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

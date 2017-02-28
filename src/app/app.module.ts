@@ -15,6 +15,8 @@ import {FormsModule} from "@angular/forms";
 import {SearchPage} from "../pages/search/search.component";
 import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
 import {QuestionPage} from "../pages/question/question.component";
+import {AdminPage, ApplyStatusModal, ConfirmModal} from "../pages/admin/admin.component";
+import {Pagination} from "../components/pagination/pagination.component";
 
 const appRouters: Routes = [
     {
@@ -27,6 +29,7 @@ const appRouters: Routes = [
     {path: 'cert-form/:type', component: CertFormPage},
     {path: 'search', component: SearchPage},
     {path: 'question', component: QuestionPage},
+    {path: 'admin', component: AdminPage},
 ];
 
 @NgModule({
@@ -43,13 +46,17 @@ const appRouters: Routes = [
         CertFormPage,
         SearchPage,
         QuestionPage,
+        AdminPage,
         Carousel,
         CertDetailModal,
-        ApplyStatusPipe
+        ApplyStatusPipe,
+        ApplyStatusModal,
+        ConfirmModal,
+        Pagination
     ],
     bootstrap: [AppComponent],
     providers: [Api],
-    entryComponents: [CertDetailModal],
+    entryComponents: [CertDetailModal, ApplyStatusModal, ConfirmModal],
 })
 export class AppModule {
 }

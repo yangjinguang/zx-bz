@@ -1,0 +1,19 @@
+<div class="apply-status-modal">
+    <h3 style="margin: 0;text-align: center;">状态修改</h3>
+    <table style="margin: 40px 0"  class="full-width">
+        <tr>
+            <td style="padding-right: 20px">
+                <md-select placeholder="状态" class="full-width" [(ngModel)]="data.apply.status" name="status">
+                    <md-option *ngFor="let st of data.status" [value]="st.key">
+                        {{st.value}}
+                    </md-option>
+                </md-select>
+            </td>
+            <td width="50px">
+                <button md-raised-button (click)="save()">确定</button>
+            </td>
+        </tr>
+    </table>
+
+
+</div>

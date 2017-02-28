@@ -1,0 +1,12 @@
+<div class="pagination" *ngIf="pages>1">
+    <ul>
+        <li class="index-page" (click)="toIndexPage()" [ngClass]="{'disabled': data.isIndexPage}">首页</li>
+        <li class="pre-page" (click)="prePage()" [ngClass]="{'disabled': data.isIndexPage}">上一页</li>
+        <li class="page-number" *ngFor="let p of data.pageNumArr" (click)="pageChange(p)"
+            [ngClass]="{'active': page==p}">{{p}}
+        </li>
+        <li class="page-number" (click)="nextPage()" *ngIf="pages>5&&data.showMore">...</li>
+        <li class="next-page" (click)="nextPage()" [ngClass]="{'disabled': data.isLastPage}">下一页</li>
+        <li class="last-page" (click)="toLastPage()" [ngClass]="{'disabled': data.isLastPage}">尾页</li>
+    </ul>
+</div>

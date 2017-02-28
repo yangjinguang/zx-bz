@@ -36,7 +36,7 @@ export class Api {
             errMsg = error.message ? error.message : error.toString();
         }
         console.error(errMsg);
-        return Promise.reject(errMsg);
+        return Promise.reject(error);
     }
 
     public getCertItems(type: Number): Promise<any> {
@@ -63,6 +63,49 @@ export class Api {
 
     public getQuestion(): Promise<any> {
         return this.http.get(ApiUrl.question)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public getApplies(page = 1, limit = 20): Promise<any> {
+        let headers = new Headers({'Authorization': localStorage['token']});
+        let options = new RequestOptions({headers: headers, search: this.queryMk({page: page, limit: limit})});
+        return this.http.get(ApiUrl.apply, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public updateAppliesStatus(id, status): Promise<any> {
+        let headers = new Headers({'Authorization': localStorage['token']});
+        let options = new RequestOptions({headers: headers});
+        return this.http.put(ApiUrl.applyStatus + '/' + id, {status: status}, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public deleteApply(id): Promise<any> {
+        let headers = new Headers({'Authorization': localStorage['token']});
+        let options = new RequestOptions({headers: headers});
+        return this.http.delete(ApiUrl.apply + '/' + id, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public login(loginData): Promise<any> {
+        return this.http.post(ApiUrl.login, loginData)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    public logout(): Promise<any> {
+        let headers = new Headers({'Authorization': localStorage['token']});
+        let options = new RequestOptions({headers: headers});
+        return this.http.get(ApiUrl.logout, options)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
