@@ -1,4 +1,4 @@
-<div class="search">
+<div class="search" infiniteScroll (toRefresh)="pushData()">
     <div class="search-form">
 
         <md-input-container class="full-width">
@@ -12,7 +12,7 @@
                 暂无结果
             </md-card-content>
         </md-card>
-        <md-card *ngFor="let apply of data.applies.list">
+        <md-card *ngFor="let apply of data.applies">
             <md-card-header>
                 <md-card-title>船员证</md-card-title>
                 <md-card-subtitle>{{apply.createAt|date:'yyyy-MM-dd HH:mm:ss'}}</md-card-subtitle>

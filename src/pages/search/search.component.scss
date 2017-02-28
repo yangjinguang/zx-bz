@@ -1,5 +1,7 @@
 :host /deep/ .search {
     padding: 20px;
+    height: 100%;
+    overflow: auto;
     .search-form-or {
         font-size: 12px;
         width: 30px;

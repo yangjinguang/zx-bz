@@ -17,6 +17,7 @@ import {ApplyStatusPipe} from "../pipes/apply-status.pipe";
 import {QuestionPage} from "../pages/question/question.component";
 import {AdminPage, ApplyStatusModal, ConfirmModal} from "../pages/admin/admin.component";
 import {Pagination} from "../components/pagination/pagination.component";
+import {InfiniteScrollDirective} from "../directives/infinite-scroll.directive";
 
 const appRouters: Routes = [
     {
@@ -52,7 +53,8 @@ const appRouters: Routes = [
         ApplyStatusPipe,
         ApplyStatusModal,
         ConfirmModal,
-        Pagination
+        Pagination,
+        InfiniteScrollDirective
     ],
     bootstrap: [AppComponent],
     providers: [Api],

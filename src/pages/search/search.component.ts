@@ -14,11 +14,12 @@ export class SearchPage implements OnInit {
 
     constructor(private api: Api) {
         this.data = {
-            applies: {}
+            applies: []
         };
         this.searchData = {
-            name: '',
-            phoneNumber: ''
+            phoneNumber: '',
+            page: 1,
+            limit: 2
         }
     }
 
@@ -27,8 +28,15 @@ export class SearchPage implements OnInit {
 
     public toSearch(): void {
         this.api.applySearch(this.searchData).then((result) => {
-            this.data.applies = result;
+            this.data.applies = result.list;
             console.log(this.data.applies)
+        })
+    }
+
+    public pushData(): void {
+        this.searchData.page = this.searchData.page + 1;
+        this.api.applySearch(this.searchData).then((result) => {
+            this.data.applies = this.data.applies.concat(result.list);
         })
     }
 }

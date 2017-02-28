@@ -2,7 +2,7 @@
 
 import {Component, OnInit} from '@angular/core';
 import {Api} from "../../services/api.service";
-import {MdDialogRef, MdDialog, coerceNumberProperty} from "@angular/material";
+import {MdDialogRef, MdDialog} from "@angular/material";
 
 @Component({
     selector: 'admin-page',
