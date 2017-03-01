@@ -11,6 +11,9 @@ body {
     width: 100%;
     margin: 0;
     height: 100%;
+    overflow: auto;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     background-color: #f3f3f3;
 }
 
@@ -20,6 +23,8 @@ body {
 
 .mat-dialog-container {
     max-width: none !important;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 .md-button:not([disabled]):hover {
@@ -49,15 +54,16 @@ body {
 .clearfix {
     display: block;
 }
+
 .mat-menu-item {
     font-size: 14px !important;
     line-height: 40px !important;
     height: 40px !important;
 }
+
 .cdk-focus-trap-content {
     height: 100%;
 }
-
 
 @import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
 @import '~font-awesome/css/font-awesome.min.css';

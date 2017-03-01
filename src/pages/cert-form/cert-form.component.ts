@@ -11,7 +11,7 @@ import {Api} from "../../services/api.service";
 })
 export class CertFormPage implements OnInit {
     public data: any;
-    public applyData: Object;
+    public applyData: any;
     public phoneCodeList = ['+86', '+65'];
 
     constructor(private route: ActivatedRoute, private api: Api) {
@@ -34,6 +34,10 @@ export class CertFormPage implements OnInit {
 
     public saveApply(): void {
         console.log(this.applyData);
+        if (this.applyData.phoneNumber == '') {
+            alert('手机号不能为空');
+            return;
+        }
         this.api.saveApply(this.applyData).then((result) => {
             this.data.success = true;
         })
