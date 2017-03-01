@@ -1,8 +1,6 @@
 'use strict';
-let ApiHost = 'http://localhost:3000';
-if (process.env.ENV === 'production') {
-    ApiHost = 'http://211.98.143.246:3000';
-}
+const ApiHost = 'http://211.98.143.246:3000';
+// const ApiHost = 'http://localhost:3000';
 const ApiUrl = {
     login: ApiHost + '/user/login',
     logout: ApiHost + '/user/logout',
