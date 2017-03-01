@@ -1,6 +1,9 @@
 'use strict';
-export const ApiHost = 'http://localhost:3000';
-export const ApiUrl = {
+let ApiHost = 'http://localhost:3000';
+if (process.env.ENV === 'production') {
+    ApiHost = 'http://211.98.143.246:3000';
+}
+const ApiUrl = {
     login: ApiHost + '/user/login',
     logout: ApiHost + '/user/logout',
     getCertItems: ApiHost + '/cert',
@@ -9,3 +12,7 @@ export const ApiUrl = {
     applyStatus: ApiHost + '/apply/status',
     question: ApiHost + '/question',
 };
+export {
+    ApiHost,
+    ApiUrl
+}
