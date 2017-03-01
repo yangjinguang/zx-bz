@@ -36,7 +36,7 @@ export class AdminPage implements OnInit {
 
     }
 
-    private dataInit(): void {
+    public dataInit(): void {
         this.api.getApplies(this.data.page, this.data.limit).then((result) => {
             this.data.applies = result.list;
             if (result.total > this.data.limit) {
@@ -107,7 +107,9 @@ export class AdminPage implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                this.dataInit()
+                this.api.deleteApply(apply.id).then(() => {
+                    this.dataInit()
+                });
             }
         });
     }
