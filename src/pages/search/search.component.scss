@@ -2,6 +2,8 @@
     padding: 20px;
     height: 100%;
     overflow: auto;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     .search-form-or {
         font-size: 12px;
         width: 30px;
