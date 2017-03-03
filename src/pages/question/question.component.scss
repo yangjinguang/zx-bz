@@ -34,6 +34,10 @@
                 }
                 p {
                     margin: 0;
+                    background-color: transparent;
+                    span {
+                        background-color: transparent!important;
+                    }
                 }
             }
         }
