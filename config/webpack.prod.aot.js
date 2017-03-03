@@ -10,6 +10,10 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
+    entry: {
+        'polyfills': './src/polyfills.ts',
+        'app': './src/main-aot.ts'
+    },
     output: {
         path: helpers.root('dist'),
         publicPath: '/',

@@ -6,7 +6,7 @@
     "server": "webpack-dev-server --inline --progress",
     "test": "",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "build:aot": "rimraf dist &&ngc  -p tsconfig.json && webpack --config config/webpack.prod.aot.js --progress --profile --bail"
+    "build:aot": "rimraf dist .tmp &&ngc  -p tsconfig.json && webpack --config config/webpack.prod.aot.js --progress --profile --bail"
   },
   "author": "",
   "license": "ISC",

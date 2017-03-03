@@ -105,16 +105,15 @@ export class CertDetailModal {
     public data: any;
 
     constructor(public dialogRef: MdDialogRef<CertDetailModal>, private sanitizer: DomSanitizer, private router: Router) {
-        let item = dialogRef.config.data;
         this.data = {
-            id: item.id,
-            title: item.type == 2 ? item.name + '签证办理须知' : item.name + '办理须知',
+            id: dialogRef.config.data.id,
+            title: dialogRef.config.data.type == 2 ? dialogRef.config.data.name + '签证办理须知' : dialogRef.config.data.name + '办理须知',
             desc: this.sanitizer.bypassSecurityTrustHtml(dialogRef.config.data.desc)
         };
         console.log(this.data)
     }
 
-    public toCertForm(item): void {
+    public toCertForm(): void {
         this.router.navigate(['/cert-form', this.data.id]);
         // this.dialogRef.close()
     }

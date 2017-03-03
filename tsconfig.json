@@ -12,20 +12,19 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "target": "es5",
-        "outDir": ".tmp"
+        "outDir": ".tmp/out"
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "src/main-aot.ts",
+        "dist"
     ],
     "compileOnSave": false,
-    "atom": {
-        "rewriteTsconfig": false
-    },
     "angularCompilerOptions": {
-        "genDir": "aot",
+        "genDir": ".tmp/aot",
         "skipMetadataEmit": true
     }
 }
